@@ -1,3 +1,5 @@
+import 'server-only';
+
 const teams = [
   {
     id: 1,
