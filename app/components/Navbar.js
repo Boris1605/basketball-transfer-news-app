@@ -1,7 +1,13 @@
+'use client';
+
 // import Image from "next/image";
+import classnames from 'classnames';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const currentPath = usePathname();
+
   const links = [
     { label: 'Transfers', href: '/transfers' },
     { label: 'News', href: '/news' },
@@ -18,7 +24,11 @@ export default function Navbar() {
         {links.map((link) => (
           <Link
             key={`link-${link.href}`}
-            className="text-zinc-500 hover:text-zinc-800 transition-colors"
+            className={classnames({
+              'text-zinc-900': link.href === currentPath,
+              'text-zinc-500': link.href !== currentPath,
+              'hover:text-zinc-800 transition-colors': true,
+            })}
             href={link.href}
           >
             {link.label}
