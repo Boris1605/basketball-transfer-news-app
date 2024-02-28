@@ -12,7 +12,7 @@ export default function Navbar() {
     { label: 'Transfers', href: '/transfers' },
     { label: 'News', href: '/news' },
     { label: 'Teams', href: '/teams' },
-  ];
+  ] as const;
 
   return (
     <nav className="flex space-x-6 border-b mb-5 px-5 h-14 items-center">
