@@ -11,6 +11,7 @@ export function GET(): NextResponse<RootResponseBodyGet> {
   });
 }
 
+// Validation schema for request body
 const userSchema = z.object({
   name: z.string(),
 });
@@ -30,14 +31,26 @@ export async function POST(
 
   const result = userSchema.safeParse(requestBody);
 
-  console.log('validation restult', result);
+  console.log('validation result', result);
 
+  // If client sends request body with incorrect data,
+  // return a response with a 400 status code to the client
   if (!result.success) {
+    // error.issues [
+    //   {
+    //     code: 'invalid_type',
+    //     expected: 'string',
+    //     received: 'undefined',
+    //     path: [ 'name' ],
+    //     message: 'Required'
+    //   }
+    // ]
     console.log('error.issues', result.error.issues);
+
     return NextResponse.json(
       {
         error:
-          'You need to send an object with a "team" property, eg { "team": "Denver Nuggets"} ',
+          'You need to send an object with a "name" property, eg { "name": "Abby"} ',
       },
       {
         status: 400,
@@ -47,7 +60,7 @@ export async function POST(
 
   console.log('good data', result.data);
 
-  // console.log('POST request body requestJson.team', result.data.team);
+  console.log('POST request body requestJson.name', result.data.name);
 
   return NextResponse.json({
     teams: '/api/teams',

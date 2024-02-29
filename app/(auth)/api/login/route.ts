@@ -1,19 +1,18 @@
-import crypto from 'node:crypto';
 import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
-import { createSessionInsecure } from '../../../../database/sessions';
+import crypto from 'node:crypto';
 import {
-  createUserInsecure,
-  getUserByEmailInsecure,
   User,
+  getUserWithPasswordHashByEmailInsecure,
 } from '../../../../database/users';
 import { userSchema } from '../../../../migrations/00000-createTableUsers';
 import { secureCookieOptions } from '../../../../util/cookies';
+import { createSessionInsecure } from '../../../../database/sessions';
 
-export type RegisterResponseBodyPost =
+export type LoginResponseBodyPost =
   | {
-      user: User;
+      user: Pick<User, 'email'>;
     }
   | {
       errors: { message: string }[];
@@ -21,8 +20,7 @@ export type RegisterResponseBodyPost =
 
 export async function POST(
   request: NextRequest,
-): Promise<NextResponse<RegisterResponseBodyPost>> {
-  // Task: Implement the user registration workflow
+): Promise<NextResponse<LoginResponseBodyPost>> {
   // 1. Get the user data from the request
   const body = await request.json();
 
@@ -38,37 +36,43 @@ export async function POST(
     );
   }
 
-  // 3. Check if user already exist in the database
-  const user = await getUserByEmailInsecure(result.data.email);
+  // 3. verify the user credentials
+  const userWithPasswordHash = await getUserWithPasswordHashByEmailInsecure(
+    result.data.email,
+  );
 
-  if (user) {
+  if (!userWithPasswordHash) {
     return NextResponse.json(
       {
-        errors: [{ message: 'email is already taken' }],
+        errors: [{ message: 'email or password not valid' }],
       },
       { status: 403 },
     );
   }
 
-  // 4. Hash the plain password from the user
-  const passwordHash = await bcrypt.hash(result.data.password, 12);
+  // 4. Validate the user password by comparing with hashed password
+  const isPasswordValid = await bcrypt.compare(
+    result.data.password,
+    userWithPasswordHash.passwordHash,
+  );
 
-  // 5. Save the user information with the hashed password in the database
-  const newUser = await createUserInsecure(result.data.email, passwordHash);
-
-  if (!newUser) {
+  if (!isPasswordValid) {
     return NextResponse.json(
-      { errors: [{ message: 'Error creating the new user' }] },
-      { status: 500 },
+      { errors: [{ message: 'email or password not valid' }] },
+      {
+        status: 401,
+      },
     );
   }
 
+  // At this stage we already confirm that the user is who they say they are
+
   //  Coming in subsequent lecture
-  // 6. Create a token
+  // 5. Create a token
   const token = crypto.randomBytes(100).toString('base64');
 
-  // 7. Create the session record
-  const session = await createSessionInsecure(newUser.id, token);
+  // 6. Create the session record
+  const session = await createSessionInsecure(userWithPasswordHash.id, token);
 
   if (!session) {
     return NextResponse.json(
@@ -79,7 +83,8 @@ export async function POST(
     );
   }
 
-  // 8. Send the new cookie in the headers
+  // 7. Send the new cookie in the headers
+
   // cookies().set({
   //   name: 'sessionToken',
   //   value: session.token,
@@ -96,8 +101,10 @@ export async function POST(
     ...secureCookieOptions,
   });
 
-  // 9. Send the new cookie in the headers
+  // 8. Return the new user information without the password hash
   return NextResponse.json({
-    user: newUser,
+    user: {
+      email: userWithPasswordHash.email,
+    },
   });
 }

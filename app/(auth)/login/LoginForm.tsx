@@ -4,21 +4,20 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { getSafeReturnToPath } from '../../../util/validation';
 import ErrorMessage from '../../ErrorMessage';
-import { RegisterResponseBodyPost } from '../api/register/route';
+import { LoginResponseBodyPost } from '../api/login/route';
 
 type Props = { returnTo?: string | string[] };
 
-export default function RegisterForm(props: Props) {
+export default function LoginForm(props: Props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
-
   const router = useRouter();
 
-  async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
+  async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const response = await fetch('/api/register', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({
         email,
@@ -30,7 +29,7 @@ export default function RegisterForm(props: Props) {
       },
     });
 
-    const data: RegisterResponseBodyPost = await response.json();
+    const data: LoginResponseBodyPost = await response.json();
 
     if ('errors' in data) {
       setErrors(data.errors);
@@ -52,7 +51,7 @@ export default function RegisterForm(props: Props) {
   }
 
   return (
-    <form onSubmit={async (event) => await handleRegister(event)}>
+    <form onSubmit={async (event) => await handleLogin(event)}>
       <label>
         Email
         <input onChange={(event) => setEmail(event.currentTarget.value)} />
@@ -66,7 +65,7 @@ export default function RegisterForm(props: Props) {
         />
       </label>
 
-      <button>Register</button>
+      <button>Login</button>
 
       {errors.map((error) => (
         <div className="error" key={`error-${error.message}`}>
