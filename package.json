@@ -7,6 +7,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
+    "migrate": "ley --require tsx/cjs",
     "start": "next start"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "secure-json-parse": "^2.7.0",
     "server-only": "^0.0.1",
     "sharp": "^0.33.2",
+    "tsx": "^4.7.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
