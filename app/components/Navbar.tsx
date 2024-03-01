@@ -4,14 +4,23 @@
 import classnames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { User } from '../../database/users';
 
-export default function Navbar() {
+type Props = {
+  user: Pick<User, 'email'> | undefined;
+};
+
+export default function Navbar(props: Props) {
   const currentPath = usePathname();
 
   const links = [
     { label: 'Transfers', href: '/transfers' },
     { label: 'News', href: '/news' },
     { label: 'Teams', href: '/teams' },
+    { label: 'Login', href: '/login' },
+    { label: 'Register', href: '/register' },
+    // { label: props.user?.email, href: `/profile/${props.user?.email}` },
+    { label: 'Profile', href: `/profile/${props.user?.email}` },
   ] as const;
 
   return (

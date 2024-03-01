@@ -6,6 +6,7 @@ import { getSafeReturnToPath } from '../../../util/validation';
 import ErrorMessage from '../../ErrorMessage';
 import { RegisterResponseBodyPost } from '../api/register/route';
 
+
 type Props = { returnTo?: string | string[] };
 
 export default function RegisterForm(props: Props) {
@@ -47,6 +48,7 @@ export default function RegisterForm(props: Props) {
     router.push(
       getSafeReturnToPath(props.returnTo) || `/profile/${data.user.email}`,
     );
+
 
     router.refresh();
   }

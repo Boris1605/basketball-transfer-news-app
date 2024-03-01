@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 import Navbar from './components/Navbar';
 import './globals.css';
+import { cookies } from 'next/headers';
+import { getUser } from '../database/users';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,13 +16,22 @@ export const metadata = {
   description: 'Home page of Basketball',
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
+  const sessionTokenCookie = cookies().get('sessionToken');
+
+  // 2. Query the current user with the sessionToken
+  const user = sessionTokenCookie && (await getUser(sessionTokenCookie.value));
+
   return (
     <html lang="en" data-theme="bumblebee">
       <body className={inter.className}>
         <header>
           <div>
-            <Navbar />
+            <Navbar user={user} />
           </div>
         </header>
         <main className="p-5">{children}</main>
