@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@upleveled/ley':
-    specifier: ^0.8.5
-    version: 0.8.5
+    specifier: ^0.8.6
+    version: 0.8.6
   bcrypt:
     specifier: ^5.1.1
     version: 5.1.1
@@ -87,7 +87,7 @@ devDependencies:
     version: 4.7.2(postcss@8.4.35)
   eslint-config-upleveled:
     specifier: ^7.8.1
-    version: 7.8.1(@babel/core@7.24.0)(@types/eslint@8.56.4)(@types/node@20.11.22)(@types/react-dom@18.2.19)(@types/react@18.2.60)(eslint@8.57.0)(globals@14.0.0)(typescript@5.3.3)
+    version: 7.8.1(@babel/core@7.24.0)(@types/eslint@8.56.5)(@types/node@20.11.22)(@types/react-dom@18.2.19)(@types/react@18.2.60)(eslint@8.57.0)(globals@14.0.0)(typescript@5.3.3)
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@20.11.22)
@@ -1801,8 +1801,8 @@ packages:
       '@types/node': 20.11.22
     dev: true
 
-  /@types/eslint@8.56.4:
-    resolution: {integrity: sha512-lG1GLUnL5vuRBGb3MgWUWLdGMH2Hps+pERuyQXCfWozuGKdnhf9Pbg4pkcrVUHjKrU7Rl+GCZ/299ObBXZFAxg==}
+  /@types/eslint@8.56.5:
+    resolution: {integrity: sha512-u5/YPJHo1tvkSF2CE0USEkxon82Z5DBy2xR+qfyYNszpX9qcs4sT6uq2kBbj4BXY1+DBGDPnrhMZV3pKWGNukw==}
     dependencies:
       '@types/estree': 1.0.5
       '@types/json-schema': 7.0.15
@@ -2164,8 +2164,8 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@upleveled/ley@0.8.5:
-    resolution: {integrity: sha512-XIJ08AIEKcwABZ6Xb0rS6mFEhMMskAakBKJdwHCniRbFjXtZaoqf1DGPGhrYNKKpIAGZlSjh8v0aOn+rAjHA/g==}
+  /@upleveled/ley@0.8.6:
+    resolution: {integrity: sha512-FqFhvC85XRsAxr2B3Z8s0lcRmr+tnA0V4lebrM5rfgsXpxI0PFfH41KyPEQDFl//sKjQSyDmX3P0BUnfhL/+NQ==}
     engines: {node: '>= 8'}
     hasBin: true
     dependencies:
@@ -3467,7 +3467,7 @@ packages:
       parse-gitignore: 2.0.0
     dev: true
 
-  /eslint-config-upleveled@7.8.1(@babel/core@7.24.0)(@types/eslint@8.56.4)(@types/node@20.11.22)(@types/react-dom@18.2.19)(@types/react@18.2.60)(eslint@8.57.0)(globals@14.0.0)(typescript@5.3.3):
+  /eslint-config-upleveled@7.8.1(@babel/core@7.24.0)(@types/eslint@8.56.5)(@types/node@20.11.22)(@types/react-dom@18.2.19)(@types/react@18.2.60)(eslint@8.57.0)(globals@14.0.0)(typescript@5.3.3):
     resolution: {integrity: sha512-jvJefouBciyUlxcxZJl59ORHxluUyE0yt9kWGmBhcl83UPkdMJGOhbxTsg9e0Ubpx1J0BaV34XtgiBga9ARBrA==}
     engines: {node: '>=20.9.0'}
     hasBin: true
@@ -3482,7 +3482,7 @@ packages:
     dependencies:
       '@babel/eslint-parser': 7.23.10(@babel/core@7.24.0)(eslint@8.57.0)
       '@next/eslint-plugin-next': 14.1.0
-      '@types/eslint': 8.56.4
+      '@types/eslint': 8.56.5
       '@types/node': 20.11.22
       '@types/react': 18.2.60
       '@types/react-dom': 18.2.19
@@ -7079,7 +7079,7 @@ packages:
     dependencies:
       stylelint: 16.2.1(typescript@5.3.3)
     optionalDependencies:
-      stylelint-scss: 6.1.0(stylelint@16.2.1)
+      stylelint-scss: 6.2.0(stylelint@16.2.1)
     dev: true
 
   /stylelint-config-recommended-scss@14.0.0(postcss@8.4.35)(stylelint@16.2.1):
@@ -7136,6 +7136,22 @@ packages:
       postcss-value-parser: 4.2.0
       stylelint: 16.2.1(typescript@5.3.3)
     dev: true
+
+  /stylelint-scss@6.2.0(stylelint@16.2.1):
+    resolution: {integrity: sha512-ktYsWKNN+zh4VlpdNMajYCOREwaPI9xZLVue/H5vX4f4v7Kg+ej9Bj0b7fG41J2UboNujZNU9qi0yM/KK3KhOQ==}
+    engines: {node: '>=18.12.0'}
+    requiresBuild: true
+    peerDependencies:
+      stylelint: ^16.0.2
+    dependencies:
+      known-css-properties: 0.29.0
+      postcss-media-query-parser: 0.2.3
+      postcss-resolve-nested-selector: 0.1.1
+      postcss-selector-parser: 6.0.15
+      postcss-value-parser: 4.2.0
+      stylelint: 16.2.1(typescript@5.3.3)
+    dev: true
+    optional: true
 
   /stylelint@16.2.1(typescript@5.3.3):
     resolution: {integrity: sha512-SfIMGFK+4n7XVAyv50CpVfcGYWG4v41y6xG7PqOgQSY8M/PgdK0SQbjWFblxjJZlN9jNq879mB4BCZHJRIJ1hA==}
