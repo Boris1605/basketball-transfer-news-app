@@ -56,6 +56,7 @@ export default function LoginForm(props: Props) {
         Email
         <input onChange={(event) => setEmail(event.currentTarget.value)} />
       </label>
+      <br />
 
       <label>
         Password
@@ -64,6 +65,7 @@ export default function LoginForm(props: Props) {
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </label>
+      <br />
 
       <button>Login</button>
 

@@ -11,7 +11,6 @@ type Props = {
 };
 
 export default async function LoginPage({ searchParams }: Props) {
-  // Coming up in subsequent lectures
   // Task: Add redirect to home if user is logged in
 
   // 1. Checking if the sessionToken cookie exists

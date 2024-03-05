@@ -1,14 +1,14 @@
+import crypto from 'node:crypto';
 import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
-import crypto from 'node:crypto';
+import { createSessionInsecure } from '../../../../database/sessions';
 import {
   User,
   getUserWithPasswordHashByEmailInsecure,
 } from '../../../../database/users';
 import { userSchema } from '../../../../migrations/00000-createTableUsers';
 import { secureCookieOptions } from '../../../../util/cookies';
-import { createSessionInsecure } from '../../../../database/sessions';
 
 export type LoginResponseBodyPost =
   | {
@@ -66,8 +66,6 @@ export async function POST(
   }
 
   // At this stage we already confirm that the user is who they say they are
-
-  //  Coming in subsequent lecture
   // 5. Create a token
   const token = crypto.randomBytes(100).toString('base64');
 
@@ -84,16 +82,6 @@ export async function POST(
   }
 
   // 7. Send the new cookie in the headers
-
-  // cookies().set({
-  //   name: 'sessionToken',
-  //   value: session.token,
-  //   httpOnly: true,
-  //   path: '/',
-  //   secure: process.env.NODE_ENV === 'production',
-  //   maxAge: 60 * 60 * 24, // Expires in 24 hours,
-  //   sameSite: 'lax',
-  // });
 
   cookies().set({
     name: 'sessionToken',

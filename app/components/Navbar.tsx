@@ -4,10 +4,11 @@
 import classnames from 'classnames';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import LogoutButton from '../(auth)/logout/LogoutButton';
 import { User } from '../../database/users';
 
 type Props = {
-  user: Pick<User, 'email'> | undefined;
+  user: Pick<User, 'id'> | null;
 };
 
 export default function Navbar(props: Props) {
@@ -17,10 +18,12 @@ export default function Navbar(props: Props) {
     { label: 'Transfers', href: '/transfers' },
     { label: 'News', href: '/news' },
     { label: 'Teams', href: '/teams' },
-    { label: 'Login', href: '/login' },
-    { label: 'Register', href: '/register' },
-    // { label: props.user?.email, href: `/profile/${props.user?.email}` },
-    { label: 'Profile', href: `/profile/${props.user?.email}` },
+    ...(props.user
+      ? [{ label: 'Profile', href: `/profile/${props.user.id}` }]
+      : [
+          { label: 'Login', href: '/login' },
+          { label: 'Register', href: '/register' },
+        ]),
   ] as const;
 
   return (
@@ -43,6 +46,7 @@ export default function Navbar(props: Props) {
             {link.label}
           </Link>
         ))}
+        {props.user && <LogoutButton />}
       </ul>
     </nav>
   );

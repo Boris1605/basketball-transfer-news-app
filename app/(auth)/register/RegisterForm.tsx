@@ -6,7 +6,6 @@ import { getSafeReturnToPath } from '../../../util/validation';
 import ErrorMessage from '../../ErrorMessage';
 import { RegisterResponseBodyPost } from '../api/register/route';
 
-
 type Props = { returnTo?: string | string[] };
 
 export default function RegisterForm(props: Props) {
@@ -49,7 +48,6 @@ export default function RegisterForm(props: Props) {
       getSafeReturnToPath(props.returnTo) || `/profile/${data.user.email}`,
     );
 
-
     router.refresh();
   }
 
@@ -59,6 +57,7 @@ export default function RegisterForm(props: Props) {
         Email
         <input onChange={(event) => setEmail(event.currentTarget.value)} />
       </label>
+      <br />
 
       <label>
         Password
@@ -67,6 +66,7 @@ export default function RegisterForm(props: Props) {
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </label>
+      <br />
 
       <button>Register</button>
 

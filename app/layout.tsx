@@ -31,6 +31,7 @@ export default async function RootLayout({
       <body className={inter.className}>
         <header>
           <div>
+            {/* ternary op logged / not logged user navbar */}
             <Navbar user={user} />
           </div>
         </header>
