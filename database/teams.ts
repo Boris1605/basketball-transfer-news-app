@@ -281,7 +281,7 @@ export const getTeams = cache(async (token: string) => {
       teams.*
     FROM
       teams
-      INNER JOIN session ON (
+      INNER JOIN sessions ON (
         sessions.token = ${token}
         AND sessions.expiry_timestamp > now()
       )
@@ -290,7 +290,7 @@ export const getTeams = cache(async (token: string) => {
 });
 
 export const createTeam = cache(
-  async (token: string, newTeam: Omit<Team, 'id'>) => {
+  async (token: string, newTeam: Team ) => {
     const [team] = await sql<Team[]>`
       INSERT INTO
         teams (

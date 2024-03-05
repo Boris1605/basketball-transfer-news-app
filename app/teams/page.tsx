@@ -1,43 +1,29 @@
-'use client';
+import Link from 'next/link';
+import { getTeamsInsecure } from '../../database/teamsInsecure';
 
-import { useEffect, useState } from 'react';
+export const metadata = {
+  title: 'Teams page',
+  description: 'Teams page',
+};
 
-// export const metadata = {
-//   title: 'Teams page',
-//   description: 'Teams page',
-// };
-
-export default function TeamsPage() {
-  const [teams, setTeams] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const baseUrl = '/api/teams';
-
-  useEffect(() => {
-    // Function to fetch guest data on initial render
-    console.log(process.env);
-    const firstFetch = () => {
-      fetch(baseUrl, {
-        method: 'GET',
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setTeams(data);
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          console.log('Error fetching guest list:', error);
-          setIsLoading(false);
-        });
-    };
-
-    // Call the initial fetch function
-    firstFetch();
-  }, []);
+export default async function TeamsPage() {
+  const teams = await getTeamsInsecure();
 
   return (
     <main>
       <div>Teams</div>
+      <div>
+        {' '}
+        {teams.map((team) => {
+          return (
+            <div key={`teams-${team.id}`}>
+              <Link href={`/teams/${team.id}`}>
+                <div>{team.fullName}</div>
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </main>
   );
 }

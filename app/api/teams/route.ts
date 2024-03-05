@@ -77,6 +77,6 @@ export async function POST(
   }
 
   return NextResponse.json({
-    team: newTeam,
+    team: newTeam ,
   });
 }
