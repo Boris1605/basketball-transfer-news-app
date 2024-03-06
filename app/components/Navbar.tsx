@@ -33,7 +33,7 @@ export default function Navbar(props: Props) {
           <Image src="/logo/logo.webp" alt="Logo" width={50} height={50} />
         </Link>
       </div>
-      <div className="hidden lg:flex">
+      <div className="hidden sm:flex">
         <ul className="space-x-6 menu menu-horizontal px-2">
           {links.map((link) => (
             <li key={`link-${link.href}`}>
@@ -54,7 +54,7 @@ export default function Navbar(props: Props) {
       </div>
       <div className="navbar-end">
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn m-1 lg:hidden">
+          <div tabIndex={0} role="button" className="btn m-1 sm:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"

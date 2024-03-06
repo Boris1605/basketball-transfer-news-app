@@ -53,7 +53,7 @@ export default function RegisterForm(props: Props) {
 
   return (
     <form onSubmit={async (event) => await handleRegister(event)}>
-      <div className="input input-bordered flex items-center gap-2">
+      <div className="input input-bordered flex items-center gap-2 max-w-[250px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
