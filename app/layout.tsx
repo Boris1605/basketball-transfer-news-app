@@ -1,14 +1,17 @@
 import { Inter } from 'next/font/google';
 // import Link from 'next/link';
+import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
+import { getUser } from '../database/users';
 import Navbar from './components/Navbar';
 import './globals.css';
-import { cookies } from 'next/headers';
-import { getUser } from '../database/users';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
+  icons: {
+    icon: '/icon.png',
+  },
   title: {
     default: 'Home page | Basketball',
     template: '%s | Basketball',
@@ -31,12 +34,18 @@ export default async function RootLayout({
       <body className={inter.className}>
         <header>
           <div>
-            {/* ternary op logged / not logged user navbar */}
             <Navbar user={user} />
           </div>
         </header>
         <main className="p-5">{children}</main>
-        {/* <footer>Hello Footer</footer> */}
+        <footer className="footer footer-center p-4 bg-base-300 text-base-content absolute bottom-0">
+          <aside>
+            <p>
+              Copyright © 2024 - All right reserved by Basketball Transfers &
+              News
+            </p>
+          </aside>
+        </footer>
       </body>
     </html>
   );
