@@ -52,7 +52,7 @@ export default function LoginForm(props: Props) {
 
   return (
     <form onSubmit={async (event) => await handleLogin(event)}>
-      <div className="input input-bordered flex items-center gap-2">
+      <div className="input input-bordered flex items-center gap-2 max-w-[250px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -70,7 +70,7 @@ export default function LoginForm(props: Props) {
         />
       </div>
       <br />
-      <div className="input input-bordered flex items-center gap-2">
+      <div className="input input-bordered flex items-center gap-2 max-w-[250px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -93,7 +93,7 @@ export default function LoginForm(props: Props) {
       </div>
       <br />
 
-      <button>Login</button>
+      <button className="btn btn-active">Login</button>
 
       {errors.map((error) => (
         <div className="error" key={`error-${error.message}`}>
