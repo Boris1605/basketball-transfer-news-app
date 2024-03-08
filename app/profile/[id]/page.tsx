@@ -2,14 +2,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getUser } from '../../../database/users';
 
-type Props = {
-  params: {
-    id: string;
-    email: string;
-  };
-};
-
-export default async function UserProfilePage(props: Props) {
+export default async function UserProfilePage() {
   // 1. Check if the sessionToken cookie exists
   const sessionTokenCookie = cookies().get('sessionToken');
 
@@ -23,14 +16,18 @@ export default async function UserProfilePage(props: Props) {
 
   // 4. If user exists, render the page
   return (
-    <div>
-      <div className="avatar">
-        <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-          {/* static avatar */}
-          <img src="../../images/avatar/avatar1.webp" alt="avatar" />
+    <main>
+      <div>
+        <h1>Your Profile</h1>
+        <br />
+        <div className="avatar">
+          <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            {/* static avatar */}
+            <img src="../../images/avatar/avatar1.webp" alt="avatar" />
+          </div>
         </div>
+        <p>Favorite Team's</p>
       </div>
-      <h2>{props.params.email}'s Profile</h2>
-    </div>
+    </main>
   );
 }
