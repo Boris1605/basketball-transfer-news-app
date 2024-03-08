@@ -11,3 +11,16 @@ export const getTeamsInsecure = cache(async () => {
   `;
   return teams;
 });
+
+export const getTeamInsecure = cache(async (id: number) => {
+  const [team] = await sql<Team[]>`
+  SELECT
+    *
+  FROM
+    teams
+  WHERE
+    id = ${id}
+  `;
+
+  return team;
+})

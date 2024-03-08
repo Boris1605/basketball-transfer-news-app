@@ -1,12 +1,47 @@
-// export default function TeamPage(props: Props) {
-//   const singleTeam = getTeam();
-//   return <div>Team</div>;
-// }
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { getTeamInsecure } from '../../../database/teamsInsecure';
 
-export default function TeamPage() {
+type Props = {
+  params: {
+    teamId: number;
+  };
+};
+
+export async function generateMetadata(props: Props) {
+  const team = await getTeamInsecure(props.params.teamId);
+  return {
+    title: team?.fullName,
+  };
+}
+
+export default async function TeamPage(props: Props) {
+  const team = await getTeamInsecure(Number(props.params.teamId));
+
+  if (!team) {
+    notFound();
+  }
+
   return (
-    <div>
-      <h1>Team</h1>
-    </div>
+    <main>
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
+        {/* <img
+          className="w-full"
+          src="/img/card-top.jpg"
+          alt="Sunset in the mountains"
+        /> */}
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">
+            <h1>{team.fullName} Team Page</h1>
+          </div>
+          <div className="text-gray-700 text-base">
+            <Link href="/teams/roster">Roster(Coming soon...)</Link>
+            <p>City: {team.city}</p>
+            <p>Division: {team.conference}</p>
+          </div>
+        </div>
+        <div className="px-6 pt-4 pb-2" />
+      </div>
+    </main>
   );
 }

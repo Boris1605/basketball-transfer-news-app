@@ -5,7 +5,9 @@ export default function RootNotFound() {
     <div>
       Sorry this page was not found make sure you visit a page that exists
       <div>
-        <Link href="/">Return Home</Link>
+        <Link className="link link-neutral" href="/">
+          Return Home
+        </Link>
       </div>
     </div>
   );

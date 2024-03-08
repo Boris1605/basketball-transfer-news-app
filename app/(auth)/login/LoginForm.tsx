@@ -66,6 +66,7 @@ export default function LoginForm(props: Props) {
           value={email}
           className="grow"
           placeholder="Email"
+          required
           onChange={(event) => setEmail(event.currentTarget.value)}
         />
       </div>
@@ -87,6 +88,7 @@ export default function LoginForm(props: Props) {
           type="password"
           placeholder="Password"
           className="grow"
+          required
           value={password}
           onChange={(event) => setPassword(event.currentTarget.value)}
         />

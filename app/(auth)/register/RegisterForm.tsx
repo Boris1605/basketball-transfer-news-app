@@ -18,6 +18,24 @@ export default function RegisterForm(props: Props) {
   async function handleRegister(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setErrors([{ message: 'Please enter a valid email address.' }]);
+      return;
+    }
+
+    // const regex = /^[a-zA-Z0-9!@#$%^&*()_+{}[\]:;<>,.?~`-]+$/;
+    // if (!regex.test(password)) {
+    //   setErrors([
+    //     {
+    //       message:
+    //         'Password can only contain letters, numbers, and special characters !@#$%^&*()_+{}[]:;<>,.?~`-',
+    //     },
+    //   ]);
+    //   return;
+    // }
+
     const response = await fetch('/api/register', {
       method: 'POST',
       body: JSON.stringify({
@@ -67,6 +85,7 @@ export default function RegisterForm(props: Props) {
           value={email}
           className="grow"
           placeholder="Email"
+          required
           onChange={(event) => setEmail(event.currentTarget.value)}
         />
       </div>
@@ -90,6 +109,7 @@ export default function RegisterForm(props: Props) {
           placeholder="Password"
           className="grow"
           value={password}
+          required
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </div>
