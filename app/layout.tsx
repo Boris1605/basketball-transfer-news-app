@@ -37,7 +37,7 @@ export default async function RootLayout({
             <Navbar user={user} />
           </div>
         </header>
-        <main className="p-5">{children}</main>
+        <main className="p-4">{children}</main>
         <footer className="footer footer-center p-4 bg-base-300 text-base-content bottom-0 fixed">
           <aside>
             <p>
