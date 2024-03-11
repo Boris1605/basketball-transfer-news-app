@@ -15,7 +15,7 @@ It's a Basketball News and Transfer App built using Next.js.
 ## Planning:
 
 - Visualize Landing page using Figma
-- Database schema design using DrawSQL
+- Database schema design using [DrawSQL](https://drawsql.app/teams/basketball-app/diagrams/basketball-app)
 
 ## Technologies Used
 
