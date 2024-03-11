@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getTeamInsecure } from '../../../database/teamsInsecure';
@@ -25,11 +26,13 @@ export default async function TeamPage(props: Props) {
   return (
     <main>
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
-        {/* <img
-          className="w-full"
-          src="/img/card-top.jpg"
-          alt="Sunset in the mountains"
-        /> */}
+        <Image
+          // className="w-full"
+          src={`/images/teamlogos/${team.name.toLowerCase()}.webp`}
+          alt={team.name}
+          width={100}
+          height={100}
+        />
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">
             <h1>{team.fullName} Team Page</h1>

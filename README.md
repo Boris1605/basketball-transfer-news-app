@@ -2,7 +2,7 @@
 
 This was my final Project during a Bootcamp based in Vienna, Austria.
 
-## About the project
+## About the project 📚
 
 It's a Basketball News and Transfer App built using Next.js.
 
@@ -24,13 +24,14 @@ It's a Basketball News and Transfer App built using Next.js.
 - Tailwind
 - Next.js
 - PostgreSQL
+- RESTfull API
 - Jest (for testing)
 - Playwright (for testing)
 - Fly.io (for deployment)
 
-## Screenshots
+## Screenshots 📸
 
-## Setup Instructions
+## Setup Instructions 💻
 
 1. Clone the repository
 
@@ -111,7 +112,7 @@ pnpm dev
 
 Open http://localhost:3000 in your browser.
 
-## Deployment Instructions (Deploy to Fly.io)
+## Deployment Instructions (Deploy to Fly.io) 🚀
 
 1. Sign up on Fly.io and verify your email.
 2. On the Fly.io dashboard page, click on the "Add a payment method" link at the top right of the page and follow the instructions (you will not be charged).

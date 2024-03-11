@@ -1,3 +1,4 @@
+// import Image from 'next/image';
 import Link from 'next/link';
 import { getTeamsInsecure } from '../../database/teamsInsecure';
 
@@ -12,12 +13,20 @@ export default async function TeamsPage() {
   return (
     <main>
       <h1>NBA Teams:</h1>
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-2xl px-6 py-4">
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-2xl p-6">
         {teams.map((team) => {
           return (
             <div key={`teams-${team.id}`}>
               <Link href={`/teams/${team.id}`}>
-                <div>{team.fullName}</div>
+                <div>
+                  <img
+                    src={`images/teamlogos/${team.name.toLowerCase()}.webp`}
+                    width={20}
+                    height={20}
+                    alt={team.name}
+                  />
+                  {team.fullName}
+                </div>
               </Link>
             </div>
           );
