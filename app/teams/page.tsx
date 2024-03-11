@@ -18,14 +18,14 @@ export default async function TeamsPage() {
           return (
             <div key={`teams-${team.id}`}>
               <Link href={`/teams/${team.id}`}>
-                <div>
+                <div className="flex items-center">
                   <img
                     src={`images/teamlogos/${team.name.toLowerCase()}.webp`}
                     width={20}
                     height={20}
                     alt={team.name}
                   />
-                  <strong>{team.fullName}</strong>
+                  <div>{team.fullName}</div>
                 </div>
               </Link>
             </div>
