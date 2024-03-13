@@ -4,14 +4,14 @@ import { z } from 'zod';
 export type Transfer = {
   id: number;
   player: string;
-  currentTeam: string;
-  newTeam: string;
+  currentTeamId: string;
+  newTeamId: string;
 };
 
 export const userSchema = z.object({
   player: z.string(),
-  currentTeam: z.string(),
-  newTeam: z.string(),
+  currentTeamId: z.string(),
+  newTeamId: z.string(),
 });
 
 export async function up(sql: Sql) {
@@ -19,8 +19,8 @@ export async function up(sql: Sql) {
     CREATE TABLE transfers (
       id integer PRIMARY key generated always AS identity,
       player varchar(80) NOT NULL UNIQUE,
-      current_team varchar(80) NOT NULL,
-      new_team varchar(80) NOT NULL
+      current_team_id integer NOT NULL,
+      new_team_id integer NOT NULL
     )
   `;
 }

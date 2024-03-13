@@ -271,6 +271,10 @@ const teams = [
     fullName: 'Washington Wizards',
     abbreviation: 'WAS',
   },
+  // {
+  //   id: 31
+  //   name: 'Free Agent'
+  // }
 ];
 
 export async function up(sql: Sql) {
@@ -286,18 +290,17 @@ export async function up(sql: Sql) {
           full_name
         )
       VALUES
-          (
-            ${team.id},
-            ${team.conference},
-            ${team.division},
-            ${team.city},
-            ${team.name},
-            ${team.fullName}
-          )
+        (
+          ${team.id},
+          ${team.conference},
+          ${team.division},
+          ${team.city},
+          ${team.name},
+          ${team.fullName}
+        )
     `;
   }
 }
-
 
 export async function down(sql: Sql) {
   for (const team of teams) {

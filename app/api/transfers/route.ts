@@ -14,6 +14,7 @@ export function GET(): NextResponse<RootResponseBodyGet> {
 // Validation schema for request body
 const userSchema = z.object({
   name: z.string(),
+  // playername, currentteamid, newteamid
 });
 
 type RootResponseBodyPost =
@@ -59,6 +60,8 @@ export async function POST(
   }
 
   console.log('good data', result.data);
+
+  // const newTransfer = await createTransfer(result.data.transfer, );
 
   console.log('POST request body requestJson.name', result.data.name);
 

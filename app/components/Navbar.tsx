@@ -27,14 +27,14 @@ export default function Navbar(props: Props) {
   ] as const;
 
   return (
-    <nav className="navbar border-b z-10 justify-between px-4 lg:px-0">
+    <nav className="navbar border-b z-10 justify-between px-4 lg:px-0 m-1">
       <div className="flex items-center">
-        <Link href="/" className="btn btn-ghost text-xl">
+        <Link href="/" className="btn btn-ghost text-xl ">
           <Image src="/logo/logo.webp" alt="Logo" width={50} height={50} />
         </Link>
       </div>
       <div className="hidden sm:flex">
-        <ul className="space-x-6 menu menu-horizontal px-2">
+        <ul className="space-x-6 menu menu-horizontal px-2 flex-nowrap">
           {links.map((link) => (
             <li key={`link-${link.href}`}>
               <Link
@@ -52,7 +52,7 @@ export default function Navbar(props: Props) {
           <li>{props.user && <LogoutButton />}</li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end m-1">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn m-1 sm:hidden">
             <svg

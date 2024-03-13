@@ -26,7 +26,7 @@ export default async function UserProfilePage() {
             <img src="../../images/avatar/avatar1.webp" alt="avatar" />
           </div>
         </div>
-        <p>Favorite Team's</p>
+        {/* <p>Favorite Team's</p> */}
       </div>
     </main>
   );

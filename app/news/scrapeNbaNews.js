@@ -7,8 +7,9 @@ export async function scrapeNBAnews() {
 
   const articles = await page.evaluate(() => {
     const articleNodes = document.querySelectorAll(
-      '.article-listing .article-item',
+      '.MultiLineEllipsis_ellipsis___1H7z',
     );
+    console.log(articleNodes);
     const articles = [];
 
     articleNodes.forEach((node) => {
