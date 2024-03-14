@@ -12,38 +12,44 @@ export default function TransferForm() {
 
   return (
     <form>
-      <label>
-        Player
+      <div>
         <input
-          placeholder="Player"
+          placeholder="Player Name"
           value={player}
           onChange={(event) => setPlayer(event.currentTarget.value)}
           required
+          className="input input-bordered w-full max-w-xs"
         />
-      </label>
-      <label>
-        Current Team
+      </div>
+      <br />
+      <div>
         <input
           placeholder="Current Team"
           value={currentTeam}
           onChange={(event) => setCurrentTeam(event.currentTarget.value)}
           required
+          className="input input-bordered w-full max-w-xs"
         />
-      </label>
-      <label>
-        New Team
+      </div>
+      <br />
+      <div>
         <input
-          placeholder="Player"
+          placeholder="New Team"
           value={newTeam}
           onChange={(event) => setNewTeam(event.currentTarget.value)}
           required
+          className="input input-bordered w-full max-w-xs"
         />
-      </label>
+      </div>
+      <br />
       <button
-        type="button"
-        onClick={() => {
-          router.refresh();
-        }}>Confirm Transfer</button>
+      // type="button"
+      // onClick={async () => {
+      //   await router.refresh();
+      // }}
+      >
+        Confirm Transfer
+      </button>
     </form>
   );
 }

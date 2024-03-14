@@ -8,8 +8,14 @@ export const metadata = {
 export default function TransfersPage() {
   return (
     <main>
-      <div>Transfers</div>
-      <TransferForm />
+      <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+        Transfers:
+        <TransferForm />
+        <br />
+        <div>
+          <p>Recently added transfers:</p>
+        </div>
+      </div>
     </main>
   );
 }
