@@ -1,57 +1,38 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-type RootResponseBodyGet = {
-  transfers: string;
-};
+// Validation schema for request body
+const transferSchema = z.object({
+  player: z.string(),
+  currentTeam: z.string(),
+  newTeam: z.string(),
+});
 
-export function GET(): NextResponse<RootResponseBodyGet> {
+type TransferData = z.infer<typeof transferSchema>;
+
+export function GET(): NextResponse<{ transfers: string }> {
   return NextResponse.json({
     transfers: '/api/transfers',
   });
 }
 
-// Validation schema for request body
-const userSchema = z.object({
-  name: z.string(),
-  // playername, currentteamid, newteamid
-});
-
-type RootResponseBodyPost =
-  | {
-      transfers: string;
-    }
-  | {
-      error: string;
-    };
-
 export async function POST(
   request: NextRequest,
-): Promise<NextResponse<RootResponseBodyPost>> {
+): Promise<NextResponse<{ transfers: string } | { error: string }>> {
   const requestBody = await request.json();
 
-  const result = userSchema.safeParse(requestBody);
+  const result = transferSchema.safeParse(requestBody);
 
   console.log('validation result', result);
 
   // If client sends request body with incorrect data,
   // return a response with a 400 status code to the client
   if (!result.success) {
-    // error.issues [
-    //   {
-    //     code: 'invalid_type',
-    //     expected: 'string',
-    //     received: 'undefined',
-    //     path: [ 'name' ],
-    //     message: 'Required'
-    //   }
-    // ]
     console.log('error.issues', result.error.issues);
-
     return NextResponse.json(
       {
         error:
-          'You need to send an object with a "name" property, eg { "name": "Abby"} ',
+          'You need to send an object with "player", "currentTeam", and "newTeam" properties.',
       },
       {
         status: 400,
@@ -61,9 +42,10 @@ export async function POST(
 
   console.log('good data', result.data);
 
-  // const newTransfer = await createTransfer(result.data.transfer, );
-
-  console.log('POST request body requestJson.name', result.data.name);
+  // Here you can store the transfer data in your preferred database
+  // Example: MongoDB, MySQL, etc.
+  // For demonstration purposes, we'll just log the data
+  console.log('Transfer created:', result.data);
 
   return NextResponse.json({
     transfers: '/api/transfers',

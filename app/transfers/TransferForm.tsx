@@ -1,17 +1,36 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function TransferForm() {
+type TransferFormProps = {
+  onSubmit: (newTransfer: Transfer) => void;
+};
+
+export type Transfer = {
+  player: String;
+  currentTeam: String;
+  newTeam: String;
+};
+
+export default function TransferForm({ onSubmit }: TransferFormProps) {
   const [player, setPlayer] = useState('');
   const [currentTeam, setCurrentTeam] = useState('');
   const [newTeam, setNewTeam] = useState('');
 
-  const router = useRouter();
+  // const router = useRouter();
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSubmit({ player, currentTeam, newTeam });
+    // Clear form fields after submission
+    setPlayer('');
+    setCurrentTeam('');
+    setNewTeam('');
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <input
           placeholder="Player Name"
@@ -43,10 +62,11 @@ export default function TransferForm() {
       </div>
       <br />
       <button
-      // type="button"
-      // onClick={async () => {
-      //   await router.refresh();
-      // }}
+        // type="button"
+        // onClick={async () => {
+        //   await router.refresh();
+        // }}
+        type="submit"
       >
         Confirm Transfer
       </button>
