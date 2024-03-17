@@ -67,6 +67,7 @@ export default function TransferForm({ onSubmit }: TransferFormProps) {
         //   await router.refresh();
         // }}
         type="submit"
+        className="btn btn-active"
       >
         Confirm Transfer
       </button>

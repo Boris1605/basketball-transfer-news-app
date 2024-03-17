@@ -51,7 +51,10 @@ export default function LoginForm(props: Props) {
   }
 
   return (
-    <form onSubmit={async (event) => await handleLogin(event)}>
+    <form
+      onSubmit={async (event) => await handleLogin(event)}
+      className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
+    >
       <div className="input input-bordered flex items-center gap-2 max-w-[250px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"

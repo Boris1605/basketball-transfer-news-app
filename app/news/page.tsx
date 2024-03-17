@@ -14,17 +14,17 @@ export default async function NewsPage() {
   const news = getNewsDummy;
   return (
     <main>
-      <div>
+      <div className="flex justify-center">
         <h1>News</h1>
         <div className="py-4">
           {news.map((news) => {
             return (
               <div
-                className="max-w-[70%] rounded-lg shadow-xl m-10 px-6 py-4"
+                className="max-w-[70%] rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
                 key={`news-${news.id}`}
               >
                 <Link href={`/news/${news.id}`}>
-                  <div>{news.title}</div>
+                  <div className="font-bold">{news.title}</div>
                   <br />
                   <div>{news.content}</div>
                 </Link>

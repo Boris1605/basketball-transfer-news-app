@@ -25,7 +25,7 @@ export default async function TeamPage(props: Props) {
 
   return (
     <main>
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
         <Image
           // className="w-full"
           src={`/images/teamlogos/${team.name.toLowerCase()}.webp`}

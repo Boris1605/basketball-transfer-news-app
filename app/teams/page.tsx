@@ -25,7 +25,7 @@ export default async function TeamsPage() {
                     height={20}
                     alt={team.name}
                   />
-                  <div>{team.fullName}</div>
+                  <div className="font-medium">{team.fullName}</div>
                 </div>
               </Link>
             </div>
