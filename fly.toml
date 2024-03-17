@@ -1,7 +1,6 @@
 app = "basketball-transfer-news-app"
 primary_region = "otp"
 
-# Apps without volume: Comment out the [mounts] configuration below
 [mounts]
   source = "postgres"
   destination = "/postgres-volume"

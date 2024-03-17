@@ -34,7 +34,7 @@ export default function Navbar(props: Props) {
         </Link>
       </div>
       <div className="hidden sm:flex">
-        <ul className="space-x-6 menu menu-horizontal px-2 flex-nowrap">
+        <ul className="space-x-6 menu menu-horizontal px-2 flex-nowrap font-bold">
           {links.map((link) => (
             <li key={`link-${link.href}`}>
               <Link

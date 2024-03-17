@@ -17,8 +17,8 @@ export default async function UserProfilePage() {
   // 4. If user exists, render the page
   return (
     <main>
-      <div>
-        <h1>Your Profile</h1>
+      <div className="max-w-sm rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+        <h1>{user.id}'s Profile</h1>
         <br />
         <div className="avatar">
           <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
