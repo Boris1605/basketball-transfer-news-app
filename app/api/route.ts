@@ -61,6 +61,11 @@ export async function POST(
   console.log('good data', result.data);
 
   console.log('POST request body requestJson.name', result.data.name);
+  const newTransfer = await createTransfer(
+    result.data.player,
+    result.currentTeam,
+    result.newTeam,
+  );
 
   return NextResponse.json({
     teams: '/api/teams',

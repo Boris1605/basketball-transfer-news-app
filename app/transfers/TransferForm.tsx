@@ -3,26 +3,40 @@
 // import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-type TransferFormProps = {
-  onSubmit: (newTransfer: Transfer) => void;
-};
-
 export type Transfer = {
-  player: String;
-  currentTeam: String;
-  newTeam: String;
+  player: string;
+  currentTeam: string;
+  newTeam: string;
 };
 
-export default function TransferForm({ onSubmit }: TransferFormProps) {
+export default function TransferForm() {
   const [player, setPlayer] = useState('');
   const [currentTeam, setCurrentTeam] = useState('');
   const [newTeam, setNewTeam] = useState('');
 
   // const router = useRouter();
+  const addTransfer = async (newTransfer: Transfer) => {
+    try {
+      const response = await fetch('api/transfers', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newTransfer),
+      });
+      // if (response.ok) {
+      //   setTransfers([...transfers, newTransfer]);
+      // } else {
+      //   console.log('Failed to add transfer');
+      // }
+    } catch (error) {
+      console.log('Failed to add transfer:', error);
+    }
+  };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSubmit({ player, currentTeam, newTeam });
+    await addTransfer({ player, currentTeam, newTeam });
     // Clear form fields after submission
     setPlayer('');
     setCurrentTeam('');
@@ -66,7 +80,7 @@ export default function TransferForm({ onSubmit }: TransferFormProps) {
         // onClick={async () => {
         //   await router.refresh();
         // }}
-        type="submit"
+
         className="btn btn-active"
       >
         Confirm Transfer
