@@ -17,8 +17,10 @@ export async function generateMetadata(props: Props) {
 }
 
 export default async function TeamPage(props: Props) {
+  // Fetch team data
   const team = await getTeamInsecure(Number(props.params.teamId));
 
+  // If team data is not found, return a 404 page
   if (!team) {
     notFound();
   }

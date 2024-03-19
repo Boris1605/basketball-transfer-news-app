@@ -1,5 +1,10 @@
 // import Image from "next/image";
 
+export const metadata = {
+  title: 'Home page',
+  description: 'Hero section home page',
+};
+
 export default function HomePage() {
   return (
     <main>

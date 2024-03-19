@@ -1,5 +1,10 @@
 import GoBack from '../../components/GoBack';
 
+export const metadata = {
+  title: 'Roster page',
+  description: 'Roster page',
+};
+
 export default function RosterPage() {
   return (
     <main>

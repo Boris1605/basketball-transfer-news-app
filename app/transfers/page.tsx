@@ -1,12 +1,12 @@
 // import { useEffect, useState } from 'react';
 import { getTransfers } from '../../database/transfers';
-import TransferForm, { Transfer } from './TransferForm';
+import TransferForm from './TransferForm';
 import TransferList from './TransferList';
 
-// export const metadata = {
-//   title: 'Transfer page',
-//   description: 'Transfer page',
-// };
+export const metadata = {
+  title: 'Transfer page',
+  description: 'Transfer page',
+};
 
 export default async function TransfersPage() {
   // const [transfers, setTransfers] = useState<Transfer[]>([]);

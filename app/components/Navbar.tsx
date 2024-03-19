@@ -12,8 +12,10 @@ type Props = {
 };
 
 export default function Navbar(props: Props) {
+  // Get the current path using usePathname hook
   const currentPath = usePathname();
 
+  // Define navigation links based on user authentication status
   const links = [
     { label: 'Transfers', href: '/transfers' },
     { label: 'News', href: '/news' },
@@ -27,6 +29,7 @@ export default function Navbar(props: Props) {
   ] as const;
 
   return (
+    // Navigation bar component
     <nav className="navbar border-b z-10 justify-between px-4 lg:px-0 m-1">
       <div className="flex items-center">
         <Link href="/" className="btn btn-ghost text-xl ">

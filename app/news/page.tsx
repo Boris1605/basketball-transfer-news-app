@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { getNewsDummy } from '../../database/newsDummy';
-import { scrapeNBAnews } from './scrapeNbaNews';
+// import { scrapeNBAnews } from './scrapeNbaNews';
 
 export const metadata = {
   title: 'News page',
-  description: 'news page',
+  description: 'News page',
 };
 
-export default async function NewsPage() {
+export default function NewsPage() {
   // Labels with news, title, desc, image(navbar map) show News comp // scrape nba.com
   // const news1 = await scrapeNBAnews();
   // console.log(news1);

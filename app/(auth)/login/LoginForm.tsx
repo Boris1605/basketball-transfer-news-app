@@ -9,14 +9,17 @@ import { LoginResponseBodyPost } from '../api/login/route';
 type Props = { returnTo?: string | string[] };
 
 export default function LoginForm(props: Props) {
+  // State variables to hold email, password, and errors
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState<{ message: string }[]>([]);
   const router = useRouter();
 
+  // Function to handle login submission
   async function handleLogin(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    // Send login request to the server
     const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({
@@ -29,8 +32,10 @@ export default function LoginForm(props: Props) {
       },
     });
 
+    // Parse the response
     const data: LoginResponseBodyPost = await response.json();
 
+    // Handle errors, if any
     if ('errors' in data) {
       setErrors(data.errors);
       return;
@@ -43,6 +48,7 @@ export default function LoginForm(props: Props) {
     //   router.push(props.returnTo);
     // }
 
+    // Redirect to the user's profile page after successful login
     router.push(
       getSafeReturnToPath(props.returnTo) || `/profile/${data.user.email}`,
     );
