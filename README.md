@@ -4,7 +4,7 @@ This was my final Project during a Bootcamp based in Vienna, Austria.
 
 ## About the project 📚
 
-It's a Basketball News and Transfer App built using Next.js.
+It's a Basketball News and Transfer App built using Next.js. The inspiration came from a website for [football transfers](https://www.transfermarkt.de/) and I wanted to make a similar one for Basketball
 
 # Features
 
@@ -24,10 +24,11 @@ It's a Basketball News and Transfer App built using Next.js.
 - Tailwind
 - Next.js
 - PostgreSQL
-- RESTfull API
+- REST API
 - Jest (for testing)
 - Playwright (for testing)
 - Fly.io (for deployment)
+- Puppeteer (not included in final deployment)
 
 ## Screenshots 📸
 
