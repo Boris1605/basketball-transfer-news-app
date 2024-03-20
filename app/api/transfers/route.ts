@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+// import { getTransfers } from '../../../database/transfers';
 
 // Validation schema for request body
 const transferSchema = z.object({
@@ -10,9 +11,12 @@ const transferSchema = z.object({
 
 type TransferData = z.infer<typeof transferSchema>;
 
-export function GET(): NextResponse<{ transfers: string }> {
+export async function GET(): NextResponse<{ transfers: string }> {
+  // const transfers = await getTransfers();
+  // console.log('Transfering', transfers);
   return NextResponse.json({
-    transfers: '/api/transfers',
+    transfers: 'transfers',
+    // transfers: transfers
   });
 }
 

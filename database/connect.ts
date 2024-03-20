@@ -1,6 +1,6 @@
-import 'server-only';
 import { unstable_noStore as noStore } from 'next/cache';
 import postgres, { Sql } from 'postgres';
+import 'server-only';
 import { setEnvironmentVariables } from '../util/config';
 
 setEnvironmentVariables();

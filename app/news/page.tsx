@@ -25,11 +25,14 @@ export default function NewsPage() {
               >
                 <Link href={`/news/${news.id}`}>
                   <div className="font-bold">{news.title}</div>
-                  {/* <div>
-                    <img alt="shows player" height={100} width={100}>
-                      {news.src}
-                    </img>
-                  </div> */}
+                  <div>
+                    <img
+                      src={news.src}
+                      alt="shows player"
+                      height={100}
+                      width={100}
+                    />
+                  </div>
                   <br />
                   <div>{news.content}</div>
                 </Link>

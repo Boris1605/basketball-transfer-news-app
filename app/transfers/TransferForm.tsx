@@ -9,10 +9,23 @@ export type Transfer = {
   newTeam: string;
 };
 
-export default function TransferForm() {
+type Props = {
+  onTransferAdded: (transfer: Transfer) => void;
+};
+
+export default function TransferForm({ onTransferAdded }: Props) {
   const [player, setPlayer] = useState('');
   const [currentTeam, setCurrentTeam] = useState('');
   const [newTeam, setNewTeam] = useState('');
+
+  // const [teams, setTeams] = useState<Team[]>([]);
+  // useEffect(() => {
+  //   const fetchTransfers = async () => {
+  //     const teams = await getTeams();
+  //     setTeams(teams);
+  //   };
+  //   fetchTeams();
+  // }, []);
 
   // const router = useRouter();
   const addTransfer = async (newTransfer: Transfer) => {
@@ -24,6 +37,7 @@ export default function TransferForm() {
         },
         body: JSON.stringify(newTransfer),
       });
+      onTransferAdded(newTransfer);
       // if (response.ok) {
       //   setTransfers([...transfers, newTransfer]);
       // } else {
@@ -44,7 +58,7 @@ export default function TransferForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex flex-row">
       <div>
         <input
           placeholder="Player Name"
@@ -57,6 +71,7 @@ export default function TransferForm() {
       <br />
       <div>
         <input
+          // make dropdown
           placeholder="Current Team"
           value={currentTeam}
           onChange={(event) => setCurrentTeam(event.currentTarget.value)}
