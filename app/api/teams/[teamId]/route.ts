@@ -1,10 +1,7 @@
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
-import { deleteTeam, updateTeam } from '../../../../database/teams';
-import {
-  Team,
-  teamSchema,
-} from '../../../../migrations/00002-createTableTeams';
+import { deleteTeam } from '../../../../database/teams';
+import { Team } from '../../../../migrations/00002-createTableTeams';
 
 type TeamParams = {
   params: {

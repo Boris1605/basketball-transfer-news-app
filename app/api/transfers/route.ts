@@ -11,7 +11,7 @@ const transferSchema = z.object({
 
 type TransferData = z.infer<typeof transferSchema>;
 
-export async function GET(): NextResponse<{ transfers: string }> {
+export async function GET(): NextResponse<{ transfers }> {
   const transfers = await getTransfers();
   console.log('Transfering', transfers);
   return NextResponse.json({

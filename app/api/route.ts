@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { createTransfer } from '../../database/transfers';
 
 type RootResponseBodyGet = {
   teams: string;
@@ -58,14 +59,16 @@ export async function POST(
     );
   }
 
-  console.log('good data', result.data);
+  // console.log('good data', result.data);
 
-  console.log('POST request body requestJson.name', result.data.name);
+  // console.log('POST request body requestJson.name', result.data.name);
   const newTransfer = await createTransfer(
     result.data.player,
     result.currentTeam,
     result.newTeam,
   );
+
+  console.log(newTransfer)
 
   return NextResponse.json({
     teams: '/api/teams',
