@@ -42,8 +42,8 @@ export default function Navbar(props: Props) {
             <li key={`link-${link.href}`}>
               <Link
                 className={classnames({
-                  'text-zinc-900': link.href === currentPath,
-                  'text-zinc-500': link.href !== currentPath,
+                  'text-zinc-800': link.href === currentPath,
+                  'text-zinc-400': link.href !== currentPath,
                   'hover:text-zinc-800 transition-colors': true,
                 })}
                 href={link.href}

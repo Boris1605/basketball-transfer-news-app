@@ -1,8 +1,9 @@
 import { cache } from 'react';
+import { Transfer } from '../migrations/00004-createTableTransfers';
 import { sql } from './connect';
 
 export const getTransfers = cache(async () => {
-  const transfers = await sql<Transfers[]>`
+  const transfers = await sql<Transfer[]>`
     SELECT
       transfers.*
     FROM
@@ -11,9 +12,15 @@ export const getTransfers = cache(async () => {
   return transfers;
 });
 
+type Transfers = {
+  player: string;
+  currentTeam: string;
+  newTeam: string;
+};
+
 export const createTransfer = cache(
   async (player: string, currentTeam: string, newTeam: string) => {
-    const [transfer] = await sql<Transfer[]>`
+    const [transfer] = await sql<Transfers[]>`
       INSERT INTO
         transfers (
           player,

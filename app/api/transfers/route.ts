@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-// import { getTransfers } from '../../../database/transfers';
+import { createTransfer, getTransfers } from '../../../database/transfers';
 
 // Validation schema for request body
 const transferSchema = z.object({
@@ -12,11 +12,11 @@ const transferSchema = z.object({
 type TransferData = z.infer<typeof transferSchema>;
 
 export async function GET(): NextResponse<{ transfers: string }> {
-  // const transfers = await getTransfers();
-  // console.log('Transfering', transfers);
+  const transfers = await getTransfers();
+  console.log('Transfering', transfers);
   return NextResponse.json({
-    transfers: 'transfers',
-    // transfers: transfers
+    // transfers: 'transfers',
+    transfers: transfers,
   });
 }
 
@@ -50,6 +50,12 @@ export async function POST(
   // Example: MongoDB, MySQL, etc.
   // For demonstration purposes, we'll just log the data
   console.log('Transfer created:', result.data);
+
+  await createTransfer(
+    result.data.player,
+    result.data.currentTeam,
+    result.data.newTeam,
+  );
 
   return NextResponse.json({
     transfers: '/api/transfers',

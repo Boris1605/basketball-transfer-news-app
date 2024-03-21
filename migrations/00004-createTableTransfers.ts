@@ -19,8 +19,8 @@ export async function up(sql: Sql) {
     CREATE TABLE transfers (
       id integer PRIMARY key generated always AS identity,
       player varchar(80) NOT NULL UNIQUE,
-      current_team integer NOT NULL,
-      new_team integer NOT NULL
+      current_team varchar(80) NOT NULL,
+      new_team varchar(80) NOT NULL
     )
   `;
 }

@@ -1,7 +1,8 @@
 'use client';
 
-// import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+// import Dropdown from 'react-dropdown';
 
 export type Transfer = {
   player: string;
@@ -9,25 +10,17 @@ export type Transfer = {
   newTeam: string;
 };
 
-type Props = {
-  onTransferAdded: (transfer: Transfer) => void;
-};
+// type Props = {
+//   onTransferAdded: (transfer: Transfer) => void;
+// };
 
-export default function TransferForm({ onTransferAdded }: Props) {
+export default function TransferForm() {
   const [player, setPlayer] = useState('');
   const [currentTeam, setCurrentTeam] = useState('');
   const [newTeam, setNewTeam] = useState('');
 
-  // const [teams, setTeams] = useState<Team[]>([]);
-  // useEffect(() => {
-  //   const fetchTransfers = async () => {
-  //     const teams = await getTeams();
-  //     setTeams(teams);
-  //   };
-  //   fetchTeams();
-  // }, []);
+  const router = useRouter();
 
-  // const router = useRouter();
   const addTransfer = async (newTransfer: Transfer) => {
     try {
       const response = await fetch('api/transfers', {
@@ -37,12 +30,14 @@ export default function TransferForm({ onTransferAdded }: Props) {
         },
         body: JSON.stringify(newTransfer),
       });
-      onTransferAdded(newTransfer);
+      console.log(response);
+      // onTransferAdded(newTransfer);
       // if (response.ok) {
       //   setTransfers([...transfers, newTransfer]);
       // } else {
       //   console.log('Failed to add transfer');
       // }
+      router.refresh();
     } catch (error) {
       console.log('Failed to add transfer:', error);
     }
@@ -57,8 +52,18 @@ export default function TransferForm({ onTransferAdded }: Props) {
     setNewTeam('');
   };
 
+  //   const [transfers, setTransfers] = useState<Transfer[]>([]);
+  // useEffect(() => {
+  //   const fetchTransfers = async () => {
+  //     const transfers = await getTransfers();
+  //     setTransfers(transfers);
+  //   };
+  //   fetchTransfers();
+  // }, []);
+  // console.log(transfers);
+
   return (
-    <form onSubmit={handleSubmit} className="flex flex-row">
+    <form onSubmit={handleSubmit} className="flex flex-row space-x-4">
       <div>
         <input
           placeholder="Player Name"

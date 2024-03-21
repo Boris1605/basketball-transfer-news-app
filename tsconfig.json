@@ -4,6 +4,9 @@
   "compilerOptions": {
     "plugins": [
       {
+        "name": "esnext"
+      },
+      {
         "name": "next"
       }
     ],

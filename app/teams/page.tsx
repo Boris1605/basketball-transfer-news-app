@@ -13,13 +13,14 @@ export default async function TeamsPage() {
   return (
     <main>
       <h1>NBA Teams:</h1>
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+      <div className="max-w-md rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
         {teams.map((team) => {
           return (
             <div key={`teams-${team.id}`}>
               <Link href={`/teams/${team.id}`}>
-                <div className="flex items-center">
+                <div className="flex items-center mb-2">
                   <img
+                    className="mr-2"
                     src={`images/teamlogos/${team.name.toLowerCase()}.webp`}
                     width={20}
                     height={20}
