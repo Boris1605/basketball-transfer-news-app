@@ -28,7 +28,7 @@ export default async function TransfersPage() {
     );
   }
   return (
-    <main>
+    <div>
       <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
         <TransferForm />
         <br />
@@ -36,6 +36,6 @@ export default async function TransfersPage() {
           <TransferList transfers={transfers} />
         </div>
       </div>
-    </main>
+    </div>
   );
 }

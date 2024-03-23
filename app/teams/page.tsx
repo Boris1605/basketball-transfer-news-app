@@ -10,7 +10,7 @@ export default async function TeamsPage() {
   const teams = await getTeamsInsecure();
 
   return (
-    <main>
+    <div>
       <div className="max-w-md rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
         <h1>NBA Teams:</h1>
         <br />
@@ -65,6 +65,6 @@ export default async function TeamsPage() {
           </tfoot>
         </table>
       </div> */}
-    </main>
+    </div>
   );
 }

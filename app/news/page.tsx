@@ -13,7 +13,7 @@ export default function NewsPage() {
   // console.log(news1);
   const news = getNewsDummy;
   return (
-    <main>
+    <div>
       <div className="flex justify-center">
         {/* <h1>News</h1> */}
         <div className="py-4">
@@ -25,16 +25,18 @@ export default function NewsPage() {
               >
                 <Link href={`/news/${news.id}`}>
                   <div className="font-bold">{news.title}</div>
-                  <div>
+                  <br />
+                  <div className="flex items-center mb-2">
                     <img
+                      className="mr-3"
                       src={news.src}
                       alt="shows player"
                       height={100}
                       width={100}
                     />
+                    <br />
+                    <div>{news.content}</div>
                   </div>
-                  <br />
-                  <div>{news.content}</div>
                 </Link>
                 <br />
               </div>
@@ -43,6 +45,6 @@ export default function NewsPage() {
         </div>
         {/* <div>{news}</div> */}
       </div>
-    </main>
+    </div>
   );
 }

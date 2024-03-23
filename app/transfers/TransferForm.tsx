@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-// import Dropdown from 'react-dropdown';
+import TeamDropdown from './TeamDropdown';
 
 export type Transfer = {
   player: string;
@@ -18,7 +18,7 @@ export default function TransferForm() {
   const [player, setPlayer] = useState('');
   const [currentTeam, setCurrentTeam] = useState('');
   const [newTeam, setNewTeam] = useState('');
-
+  const [teams, setTeams] = useState<string[]>([]);
   const router = useRouter();
 
   const addTransfer = async (newTransfer: Transfer) => {
@@ -52,16 +52,6 @@ export default function TransferForm() {
     setNewTeam('');
   };
 
-  //   const [transfers, setTransfers] = useState<Transfer[]>([]);
-  // useEffect(() => {
-  //   const fetchTransfers = async () => {
-  //     const transfers = await getTransfers();
-  //     setTransfers(transfers);
-  //   };
-  //   fetchTransfers();
-  // }, []);
-  // console.log(transfers);
-
   return (
     <form onSubmit={handleSubmit} className="flex flex-row space-x-4">
       <div>
@@ -83,16 +73,29 @@ export default function TransferForm() {
           required
           className="input input-bordered w-full max-w-xs"
         />
+        {/* <TeamDropdown
+          teams={teams}
+          value={currentTeam}
+          required
+          onChange={(event) => setCurrentTeam(event.currentTarget.value)}
+        /> */}
       </div>
       <br />
       <div>
         <input
+          // make dropdown
           placeholder="New Team"
           value={newTeam}
           onChange={(event) => setNewTeam(event.currentTarget.value)}
           required
           className="input input-bordered w-full max-w-xs"
         />
+        {/* <TeamDropdown
+          teams={teams}
+          value={newTeam}
+          required
+          onChange={(event) => setNewTeam(event.currentTarget.value)}
+        /> */}
       </div>
       <br />
       <button
