@@ -74,6 +74,8 @@ export default function RegisterForm(props: Props) {
       onSubmit={async (event) => await handleRegister(event)}
       className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
     >
+      <h1 className="font-bold text-center">Create an account</h1>
+      <br />
       <div className="input input-bordered flex items-center gap-2 ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -120,6 +122,16 @@ export default function RegisterForm(props: Props) {
       <div className="text-center">
         <button className="btn btn-active">Register</button>
       </div>
+      <br />
+      <p className="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
+        Already have an account?{' '}
+        <a
+          href="/login"
+          className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+        >
+          Login here
+        </a>
+      </p>
 
       {errors.map((error) => (
         <div className="error" key={`error-${error.message}`}>

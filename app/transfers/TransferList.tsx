@@ -1,7 +1,7 @@
 export default function TransferList({ transfers }) {
   return (
     <div>
-      <h2>Transfers</h2>
+      <h2>Recently added Transfers:</h2>
       <ul>
         {transfers.map((transfer, index) => (
           <li key={index}>

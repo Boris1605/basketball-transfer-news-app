@@ -30,7 +30,6 @@ export default async function TransfersPage() {
   return (
     <main>
       <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
-        Transfers:
         <TransferForm />
         <br />
         <div>

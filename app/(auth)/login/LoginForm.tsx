@@ -61,6 +61,8 @@ export default function LoginForm(props: Props) {
       onSubmit={async (event) => await handleLogin(event)}
       className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
     >
+      <h1 className="font-bold text-center">Login to your Account</h1>
+      <br />
       <div className="input input-bordered flex items-center gap-2 ">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -106,6 +108,16 @@ export default function LoginForm(props: Props) {
       <div className="text-center">
         <button className="btn btn-active">Login</button>
       </div>
+      <br />
+      <p className="text-sm font-light text-gray-500 dark:text-gray-400 text-center">
+        Don't have an account?{' '}
+        <a
+          href="/register"
+          className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+        >
+          Register here
+        </a>
+      </p>
 
       {errors.map((error) => (
         <div className="error" key={`error-${error.message}`}>

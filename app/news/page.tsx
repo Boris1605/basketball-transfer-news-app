@@ -15,7 +15,7 @@ export default function NewsPage() {
   return (
     <main>
       <div className="flex justify-center">
-        <h1>News</h1>
+        {/* <h1>News</h1> */}
         <div className="py-4">
           {news.map((news) => {
             return (

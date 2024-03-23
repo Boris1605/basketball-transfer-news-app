@@ -7,10 +7,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <main
-    // className="h-screen bg-cover bg-no-repeat bg-blend-darken -mt-[69px] bg-fixed"
-    // style={{ backgroundImage: "url('/images/......webp')", height: 'cover' }}
-    >
+    <div>
       <div className="hero bg-base-100 mt-10">
         <div className="hero-content text-center">
           <div className="max-w-md">
@@ -26,6 +23,6 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

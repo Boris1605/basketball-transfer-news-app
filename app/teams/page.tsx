@@ -11,8 +11,9 @@ export default async function TeamsPage() {
 
   return (
     <main>
-      <h1>NBA Teams:</h1>
       <div className="max-w-md rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+        <h1>NBA Teams:</h1>
+        <br />
         {teams.map((team) => {
           return (
             <div key={`teams-${team.id}`}>
