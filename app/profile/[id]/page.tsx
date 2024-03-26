@@ -14,10 +14,12 @@ export default async function UserProfilePage() {
     redirect('/login');
   }
 
+  console.log(user);
+
   // 4. If user exists, render the page
   return (
     <div>
-      <div className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+      <div className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white">
         <h1>{user.email}'s Profile</h1>
         <br />
         <div className="avatar">

@@ -72,7 +72,7 @@ export default function RegisterForm(props: Props) {
   return (
     <form
       onSubmit={async (event) => await handleRegister(event)}
-      className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
+      className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white"
     >
       <h1 className="font-bold text-center">Create an account</h1>
       <br />

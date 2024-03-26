@@ -20,7 +20,7 @@ export default function NewsPage() {
           {news.map((news) => {
             return (
               <div
-                className="max-w-[70%] rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
+                className="max-w-[70%] rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white"
                 key={`news-${news.id}`}
               >
                 <Link href={`/news/${news.id}`}>

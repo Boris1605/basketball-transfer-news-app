@@ -38,12 +38,12 @@ export default async function RootLayout({
           </div>
         </header>
         <main
-          // className="p-4 h-screen bg-cover bg-no-repeat bg-blend-darken -mt-[69px] bg-fixed"
-          // style={{
-          //   backgroundImage: "url('/paper-textured-background.webp')",
-          //   height: 'cover',
-          // }}
-          className="p-4"
+          className="p-4 h-screen bg-cover bg-no-repeat -mt-[4px] bg-blend-darken bg-fixed"
+          style={{
+            backgroundImage: "url('/paper-textured-background.webp')",
+            height: 'cover',
+          }}
+          // className="p-4"
         >
           {children}
         </main>

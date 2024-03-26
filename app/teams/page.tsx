@@ -11,7 +11,7 @@ export default async function TeamsPage() {
 
   return (
     <div>
-      <div className="max-w-md rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+      <div className="max-w-md rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white">
         <h1>NBA Teams:</h1>
         <br />
         {teams.map((team) => {

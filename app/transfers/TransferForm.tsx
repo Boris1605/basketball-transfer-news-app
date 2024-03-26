@@ -45,7 +45,11 @@ export default function TransferForm() {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    await addTransfer({ player, currentTeam, newTeam });
+    await addTransfer({
+      player,
+      currentTeam: currentTeam.label,
+      newTeam: newTeam.label,
+    });
     // Clear form fields after submission
     setPlayer('');
     setCurrentTeam('');
@@ -65,37 +69,31 @@ export default function TransferForm() {
       </div>
       <br />
       <div>
-        <input
+        {/* <input
           // make dropdown
           placeholder="Current Team"
           value={currentTeam}
           onChange={(event) => setCurrentTeam(event.currentTarget.value)}
           required
           className="input input-bordered w-full max-w-xs"
-        />
-        {/* <TeamDropdown
-          teams={teams}
-          value={currentTeam}
-          required
-          onChange={(event) => setCurrentTeam(event.currentTarget.value)}
         /> */}
+        <TeamDropdown
+          value={currentTeam}
+          onChange={setCurrentTeam}
+
+        />
       </div>
       <br />
       <div>
-        <input
+        {/* <input
           // make dropdown
           placeholder="New Team"
           value={newTeam}
           onChange={(event) => setNewTeam(event.currentTarget.value)}
           required
           className="input input-bordered w-full max-w-xs"
-        />
-        {/* <TeamDropdown
-          teams={teams}
-          value={newTeam}
-          required
-          onChange={(event) => setNewTeam(event.currentTarget.value)}
         /> */}
+        <TeamDropdown value={newTeam} onChange={setNewTeam} />
       </div>
       <br />
       <button

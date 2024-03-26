@@ -12,13 +12,14 @@ export const metadata = {
 export default async function TransfersPage() {
   const transfers = await getTransfers();
 
+  transfers.reverse();
   const sessionTokenCookie = cookies().get('sessionToken');
   const session =
     sessionTokenCookie && (await getValidSession(sessionTokenCookie.value));
   if (!session) {
     return (
       <main>
-        <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+        <div className="rounded-lg shadow-2xl p-6 border m-10 bg-white">
           <br />
           <div>
             <TransferList transfers={transfers} />
@@ -29,7 +30,7 @@ export default async function TransfersPage() {
   }
   return (
     <div>
-      <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10">
+      <div className="rounded-lg shadow-2xl p-6 border m-10 bg-white">
         <TransferForm />
         <br />
         <div>

@@ -59,7 +59,7 @@ export default function LoginForm(props: Props) {
   return (
     <form
       onSubmit={async (event) => await handleLogin(event)}
-      className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10"
+      className="max-w-sm mx-auto rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white"
     >
       <h1 className="font-bold text-center">Login to your Account</h1>
       <br />
