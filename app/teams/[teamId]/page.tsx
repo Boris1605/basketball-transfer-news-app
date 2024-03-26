@@ -27,7 +27,7 @@ export default async function TeamPage(props: Props) {
 
   return (
     <div>
-      <div className="max-w-sm rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white">
+      <div className="max-w-lg rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white">
         <Image
           // className="w-full"
           src={`/images/teamlogos/${team.name.toLowerCase()}.webp`}
@@ -40,11 +40,11 @@ export default async function TeamPage(props: Props) {
             <h1>{team.fullName} Team Page</h1>
           </div>
           <div className="text-gray-700 text-base">
+            <p>City: {team.city}</p>
+            <p>Conference: {team.conference}</p>
             <Link href={`/teams/${team.id}/roster`}>
               Roster(Coming soon...)
             </Link>
-            <p>City: {team.city}</p>
-            <p>Division: {team.conference}</p>
           </div>
         </div>
         <div className="px-6 pt-4 pb-2" />

@@ -30,7 +30,7 @@ export default function NewsPage() {
                     <img
                       className="mr-3"
                       src={news.src}
-                      alt="shows player"
+                      alt="show player"
                       height={100}
                       width={100}
                     />

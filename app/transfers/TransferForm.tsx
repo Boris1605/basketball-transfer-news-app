@@ -77,11 +77,7 @@ export default function TransferForm() {
           required
           className="input input-bordered w-full max-w-xs"
         /> */}
-        <TeamDropdown
-          value={currentTeam}
-          onChange={setCurrentTeam}
-
-        />
+        <TeamDropdown value={currentTeam} onChange={setCurrentTeam} />
       </div>
       <br />
       <div>
@@ -101,11 +97,25 @@ export default function TransferForm() {
         // onClick={async () => {
         //   await router.refresh();
         // }}
-
         className="btn btn-active"
       >
         Confirm Transfer
       </button>
     </form>
   );
+}
+
+{
+  /* <label className="form-control w-full max-w-xs">
+  <select className="select select-bordered">
+    <option disabled selected>
+    Select a team...
+    </option>
+    <option>Star Wars</option>
+    <option>Harry Potter</option>
+    <option>Lord of the Rings</option>
+    <option>Planet of the Apes</option>
+    <option>Star Trek</option>
+  </select>
+</label>; */
 }

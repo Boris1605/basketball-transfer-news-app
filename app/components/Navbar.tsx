@@ -31,7 +31,7 @@ export default function Navbar(props: Props) {
   return (
     // Navigation bar component
     <nav className="navbar border-b z-10 justify-between px-4 lg:px-0 m-1">
-      <div className="flex items-center">
+      <div className="flex items-center ml-2">
         <Link href="/" className="btn btn-ghost text-xl ">
           <Image src="/logo/logo.webp" alt="Logo" width={50} height={50} />
         </Link>
