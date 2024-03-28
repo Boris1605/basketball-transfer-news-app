@@ -26,7 +26,7 @@ export default async function TeamPage(props: Props) {
   }
 
   return (
-    <div>
+    <div className="h-screen">
       <div className="max-w-lg rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white">
         <Image
           // className="w-full"

@@ -7,8 +7,8 @@ export const metadata = {
 
 export default function RosterPage() {
   return (
-    <div>
-      <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white">
+    <div className="h-screen">
+      <div className="rounded-lg overflow-hidden shadow-2xl p-6 border m-10 w-1/3 bg-white">
         <div>Coming soon..</div>
         {/* <Link href={`/teams/${team.id}`}>Return to Team Page</Link> */}
         <GoBack />

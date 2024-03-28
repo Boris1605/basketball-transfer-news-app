@@ -18,7 +18,7 @@ export default async function TransfersPage() {
     sessionTokenCookie && (await getValidSession(sessionTokenCookie.value));
   if (!session) {
     return (
-      <main>
+      <main className="h-screen">
         <div className="rounded-lg shadow-2xl p-6 border m-10 bg-white">
           <br />
           <div>
@@ -29,7 +29,7 @@ export default async function TransfersPage() {
     );
   }
   return (
-    <div>
+    <div className="h-screen">
       <div className="rounded-lg shadow-2xl p-6 border m-10 bg-white">
         <TransferForm />
         <br />

@@ -287,6 +287,22 @@ const customStyles = {
     ...provided,
     width: '210px', // Adjust width as needed
     height: '48px',
+    ...(state.isFocused && {
+      boxShadow: 'none',
+      borderColor: 'grey',
+      outlineStyle: 'solid',
+      outlineWidth: '2px',
+      outlineOffset: '2px',
+      outlineColor: 'grey',
+    },
+    state.isHovered && {
+      boxShadow: 'none',
+      borderColor: 'grey',
+      outlineStyle: 'solid',
+      outlineWidth: '2px',
+      outlineOffset: '2px',
+      outlineColor: 'grey',
+    }),
   }),
   menu: (provided, state) => ({
     ...provided,

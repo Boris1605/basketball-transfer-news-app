@@ -18,7 +18,7 @@ export default async function UserProfilePage() {
 
   // 4. If user exists, render the page
   return (
-    <div>
+    <div className="h-screen">
       <div className="max-w-[48rem] mx-auto rounded-lg shadow-2xl p-7 border m-10 bg-white space-x-4">
         <h1>{user.email}'s Profile</h1>
         <br />
