@@ -287,6 +287,7 @@ const customStyles = {
     ...provided,
     width: '210px', // Adjust width as needed
     height: '48px',
+    borderRadius: '8px',
     ...(state.isFocused && {
       boxShadow: 'none',
       borderColor: 'grey',
