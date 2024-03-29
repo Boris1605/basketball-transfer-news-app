@@ -32,6 +32,16 @@ It's a Basketball News and Transfer App built using Next.js. The inspiration cam
 
 ## Screenshots 📸
 
+<img width="1440" alt="Bildschirmfoto 2024-03-29 um 13 03 59" src="https://github.com/Boris1605/basketball-transfer-news-app/assets/55455069/0c4e8648-fa09-4cfd-9ecf-d26eaed02eed">
+
+<img width="1438" alt="Bildschirmfoto 2024-03-29 um 13 04 16" src="https://github.com/Boris1605/basketball-transfer-news-app/assets/55455069/5009cc27-d92d-40e8-880a-9e76d2c2c422">
+
+<img width="1439" alt="Bildschirmfoto 2024-03-29 um 13 04 33" src="https://github.com/Boris1605/basketball-transfer-news-app/assets/55455069/555ab293-3ddb-4344-8a1c-bc949b439a75">
+
+<img width="1440" alt="Bildschirmfoto 2024-03-29 um 13 04 47" src="https://github.com/Boris1605/basketball-transfer-news-app/assets/55455069/552a68ab-bc01-48e3-aa57-4c5a2ca52788">
+
+
+
 ## Setup Instructions 💻
 
 1. Clone the repository
