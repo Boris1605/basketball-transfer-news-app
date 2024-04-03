@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { getNewsDummy } from '../../database/newsDummy';
-// import { scrapeNBAnews } from './scrapeNbaNews';
 
 export const metadata = {
   title: 'News page',
@@ -8,43 +7,31 @@ export const metadata = {
 };
 
 export default function NewsPage() {
-  // Labels with news, title, desc, image(navbar map) show News comp // scrape nba.com
-  // const news1 = await scrapeNBAnews();
-  // console.log(news1);
   const news = getNewsDummy;
+
   return (
-    <div>
-      <div className="flex justify-center">
-        {/* <h1>News</h1> */}
-        <div className="py-4">
-          {news.map((news) => {
-            return (
-              <div
-                className="max-w-[70%] rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white"
-                key={`news-${news.id}`}
-              >
-                <Link href={`/news/${news.id}`}>
-                  <div className="font-bold">{news.title}</div>
-                  <br />
-                  <div className="flex items-center mb-2">
-                    <img
-                      className="mr-3"
-                      src={news.src}
-                      alt="show player"
-                      height={100}
-                      width={100}
-                    />
-                    <br />
-                    <div>{news.content}</div>
-                  </div>
-                </Link>
-                <br />
-              </div>
-            );
-          })}
+    <div className="flex flex-col justify-center">
+      {news.map((newsItem) => (
+        <div
+          className="max-w-[70%] rounded-lg overflow-hidden shadow-2xl p-6 border m-10 bg-white"
+          key={`news-${newsItem.id}`}
+        >
+          <Link href={`/news/${newsItem.id}`}>
+            <div className="font-bold">{newsItem.title}</div>
+          </Link>
+          <br />
+          <div className="flex flex-col md:flex-row items-center">
+            <img
+              className="mb-3 md:mb-0 md:mr-3"
+              src={newsItem.src}
+              alt="show player"
+              height={100}
+              width={100}
+            />
+            <div>{newsItem.content}</div>
+          </div>
         </div>
-        {/* <div>{news}</div> */}
-      </div>
+      ))}
     </div>
   );
 }
