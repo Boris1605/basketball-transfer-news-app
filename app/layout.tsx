@@ -43,7 +43,6 @@ export default async function RootLayout({
             backgroundImage: "url('/paper-textured-background.webp')",
             height: 'cover',
           }}
-          // className="p-4"
         >
           {children}
         </main>

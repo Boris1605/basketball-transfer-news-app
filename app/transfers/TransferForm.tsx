@@ -18,7 +18,7 @@ export default function TransferForm() {
   const [player, setPlayer] = useState('');
   const [currentTeam, setCurrentTeam] = useState('');
   const [newTeam, setNewTeam] = useState('');
-  const [teams, setTeams] = useState<string[]>([]);
+  // const [teams, setTeams] = useState<string[]>([]);
   const router = useRouter();
 
   const addTransfer = async (newTransfer: Transfer) => {
@@ -103,19 +103,4 @@ export default function TransferForm() {
       </button>
     </form>
   );
-}
-
-{
-  /* <label className="form-control w-full max-w-xs">
-  <select className="select select-bordered">
-    <option disabled selected>
-    Select a team...
-    </option>
-    <option>Star Wars</option>
-    <option>Harry Potter</option>
-    <option>Lord of the Rings</option>
-    <option>Planet of the Apes</option>
-    <option>Star Trek</option>
-  </select>
-</label>; */
 }

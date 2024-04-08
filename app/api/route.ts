@@ -25,6 +25,12 @@ type RootResponseBodyPost =
       error: string;
     };
 
+type Result = {
+  player: string;
+  currentTeam: string;
+  newTeam: string;
+};
+
 export async function POST(
   request: NextRequest,
 ): Promise<NextResponse<RootResponseBodyPost>> {
@@ -68,7 +74,7 @@ export async function POST(
     result.newTeam,
   );
 
-  console.log(newTransfer)
+  console.log(newTransfer);
 
   return NextResponse.json({
     teams: '/api/teams',
