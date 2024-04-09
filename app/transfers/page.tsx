@@ -31,7 +31,9 @@ export default async function TransfersPage() {
   return (
     <div className="h-screen">
       <div className="rounded-lg shadow-2xl p-6 border m-10 bg-white">
-        <TransferForm />
+        <div className="md:flex md:flex-col">
+          <TransferForm />
+        </div>
         <br />
         <div>
           <TransferList transfers={transfers} />

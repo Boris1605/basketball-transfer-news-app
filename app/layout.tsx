@@ -38,7 +38,7 @@ export default async function RootLayout({
           </div>
         </header>
         <main
-          className="p-4 bg-contain -mt-[4px] bg-blend-darken"
+          className="p-4 bg-contain -mt-[4px] bg-blend-darken min-h-screen"
           style={{
             backgroundImage: "url('/paper-textured-background.webp')",
             height: 'cover',
@@ -46,7 +46,7 @@ export default async function RootLayout({
         >
           {children}
         </main>
-        <footer className="footer footer-center p-4 bg-base-300 text-base-content bottom-0 fixed">
+        <footer className="footer footer-center p-4 bg-base-300 text-base-content">
           <aside>
             <p>
               Copyright © 2024 - All right reserved by Basketball Transfers &

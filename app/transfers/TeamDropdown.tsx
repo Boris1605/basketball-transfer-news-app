@@ -320,12 +320,14 @@ export default function TeamDropdown({ value, onChange }: TeamDropdownProps) {
   }));
 
   return (
-    <Select
-      styles={customStyles}
-      options={options}
-      placeholder="Select a team..."
-      value={value}
-      onChange={onChange}
-    />
+    <div className="mb-4">
+      <Select
+        styles={customStyles}
+        options={options}
+        placeholder="Select a team..."
+        value={value}
+        onChange={onChange}
+      />
+    </div>
   );
 }

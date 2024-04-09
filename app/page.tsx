@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <div className="h-screen">
+    <div className="overflow-x-hidden h-screen">
       <div className="hero absolute top-[30%]">
         <div className="hero-content text-center">
           <div className="max-w-md">

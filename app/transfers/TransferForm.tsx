@@ -67,7 +67,6 @@ export default function TransferForm() {
           className="input input-bordered w-full max-w-xs"
         />
       </div>
-      <br />
       <div>
         {/* <input
           // make dropdown
@@ -79,7 +78,6 @@ export default function TransferForm() {
         /> */}
         <TeamDropdown value={currentTeam} onChange={setCurrentTeam} />
       </div>
-      <br />
       <div>
         {/* <input
           // make dropdown
@@ -91,16 +89,17 @@ export default function TransferForm() {
         /> */}
         <TeamDropdown value={newTeam} onChange={setNewTeam} />
       </div>
-      <br />
-      <button
-        // type="button"
-        // onClick={async () => {
-        //   await router.refresh();
-        // }}
-        className="btn btn-active"
-      >
-        Confirm Transfer
-      </button>
+      <div>
+        <button
+          // type="button"
+          // onClick={async () => {
+          //   await router.refresh();
+          // }}
+          className="btn btn-active"
+        >
+          Confirm Transfer
+        </button>
+      </div>
     </form>
   );
 }

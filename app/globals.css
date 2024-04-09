@@ -12,9 +12,9 @@
   }
 }
 
-body {
+/* body {
   padding-bottom: 40px;
-}
+} */
 
 @layer utilities {
   .text-balance {
